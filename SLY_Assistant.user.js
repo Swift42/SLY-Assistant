@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SLY Assistant
 // @namespace    http://tampermonkey.net/
-// @version      0.7.33
+// @version      0.7.34
 // @description  try to take over the world!
 // @author       SLY w/ Contributions by niofox, SkyLove512, anthonyra, [AEP] Valkynen, Risingson, Swift42
 // @match        https://*.based.staratlas.com/
@@ -1493,7 +1493,7 @@ async function signatureStatusHandler() {
 			// If something goes wrong, we reject each request. If a promise of the queue was already resolved in the "try" block, the reject does (correctly) nothing and won't throw an error			
 			logError('Error: Rejecting all signature checks - ' + error);
 			for (const req of currentHashes) {
-				req.reject(err);
+				req.reject(error);
 			}
 		}
 	}
